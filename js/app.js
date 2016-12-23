@@ -7,6 +7,3 @@ app.controller("myCtrl", function($scope, $http) {
 	})
 });
 
-app.controller('aboutUs', function($scope){
-	$scope.message = "This is About us  page" 	
-})
