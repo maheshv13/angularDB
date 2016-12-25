@@ -6,6 +6,7 @@
 		$data[] = $row;
 	}
 	Database::disconnect();
-	echo json_encode($data);
+	echo $json_decode = json_encode($data);
+	
 	exit;
 ?>

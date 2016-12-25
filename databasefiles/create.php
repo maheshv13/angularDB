@@ -21,7 +21,7 @@
                       <?php
      
     require 'database.php';
- 
+	$data = json_decode(file_get_contents("php://input"));
     if ( !empty($_POST)) {
         // keep track validation errors
         $nameError = null;
@@ -64,6 +64,7 @@
             header("Location: index.php");
         }
     }
+	echo true;
 ?>
                       <div class="form-group <?php echo !empty($nameError)?'error':'';?>">
                         <label class="form-label">Name</label>

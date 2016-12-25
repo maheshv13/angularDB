@@ -7,7 +7,7 @@
 		</div>
 		<div class="alert alert-default input-group m-b-none">
 			<span class="input-group-btn">
-				<input type="text" class="form-control" placeholder="Search Employee Details Into Database...">
+				<input type="text" class="form-control" placeholder="Search..." ng-model="searchName" >
 			</span>
 		</div>
 	</div>
@@ -31,7 +31,7 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr ng-repeat="x in details | orderBy:'id'">
+					<tr ng-repeat="x in details | orderBy:'id' | filter:searchName">
 						<td>{{x.id}}</td>
 						<td>{{x.name}}</td>
 						<td>{{x.email}}</td>
