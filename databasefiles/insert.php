@@ -1,8 +1,10 @@
 <?php
- include "database.php";
- $data=json_decode(file_get_contents("php://input"));
- $id=$cont->real_escape_string($data->id);
- $name=$cont->real_escape_string($data->name);
- 
- $query = "INSERT INTO customers VALUES($id, '"$name"')"
+require 'database.php';
+$pdo = Database::connect();
+$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+$sql = "INSERT INTO customers (name,email,mobile) values(?, ?, ?)";
+$q = $pdo->prepare($sql);
+$q->execute(array($name,$email,$mobile));
+Database::disconnect();
+header("Location: index.php");
 ?>
