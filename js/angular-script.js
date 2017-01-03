@@ -9,12 +9,18 @@ function getInfo() {
 	})
 }
 $scope.insertInfo = function(info){
-$http.post('databaseFiles/insertDetails.php',{"name":info.name,"email":info.email,"address":info.address,"gender":info.gender}).success(function(data){
-if (data == true) {
-getInfo();
-// Hide details insertion form
-//$('#empForm').css('display', 'none');
+	$http.post('databaseFiles/insertDetails.php',{"name":info.name,"email":info.email,"address":info.address,"gender":info.gender}).success(function(data){
+		if (data == true) {
+			getInfo();
+		// Hide details insertion form
+		//$('#empForm').css('display', 'none');
+		}
+	});
 }
-});
+$scope.currentUser = {};
+$scope.editInfo = function(info){
+	$scope.currentUser = info;
+	//$('#empForm').slideUp();
+	//$('#editForm').slideToggle();
 }		
 });
