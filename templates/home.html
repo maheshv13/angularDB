@@ -1,0 +1,55 @@
+<nav class="navbar navbar-default">
+	<div class="navbar-header">
+		<div class="alert alert-default navbar-brand ">
+			<button class="btn btn-primary">
+				Add Employee <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+			</button>
+		</div>
+		<div class="alert alert-default input-group m-b-none">
+			<span class="input-group-btn">
+				<input type="text" class="form-control" placeholder="Search..." ng-model="searchName" >
+			</span>
+		</div>
+	</div>
+</nav>
+<div class="row">
+	<div class="col-md-6 col-md-offset-3">
+		<!-- Include form template which is used to insert data into database -->
+		<div ng-include src="'templates/form.html'"></div>
+	</div>	
+	<div id="div1" class="col-md-12">
+		<div ng-app="testModule" ng-controller="myCtrl1">
+			<h1>{{ngTitle}}</h1>
+		</div>
+		<div class="clearfix"></div>
+		<div class="table-responsive">
+			<table class="table table-hover">
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>Name</th>
+						<th>Email</th>
+						<th>Mobile Number</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="x in details | orderBy:'id' | filter:searchName">
+						<td>{{x.id}}</td>
+						<td>{{x.name}}</td>
+						<td>{{x.email}}</td>
+						<td>{{x.mobile}}</td>
+						<td>
+							<button class="btn btn-warning" title="Edit">
+								<span class="glyphicon glyphicon-edit"></span>
+							</button>
+							<button class="btn btn-danger" title="Delete">
+								<span class="glyphicon glyphicon-trash"></span>
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div> 
+</div>
