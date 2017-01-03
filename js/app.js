@@ -1,4 +1,4 @@
-var app = angular.module("myApp", ["ngRoute"]);
+var app = angular.module("myApp", ["ngRoute", "testModule"]);
 app.controller("myCtrl", function($scope, $http) {
 	//$http.get("http://localhost/crud/list.php")
 	//.then(function(response){
@@ -31,4 +31,9 @@ app.controller("myCtrl", function($scope, $http) {
 	}
 	
 });
+
+var app1 = angular.module('testModule',[]);
+app1.controller('myCtrl1', function($scope){
+	$scope.ngTitle = "This comes from test module";
+})
 
